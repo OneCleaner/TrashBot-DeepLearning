@@ -1,5 +1,7 @@
 
-object_detection/gieri.jpg
-object_detection/gieri.png
+tf-camera/gieri.png
 tflite-camera/out/gieri.png
 tflite-camera/gieri.png
+tflite-camera/utils/__pycache__/__init__.cpython-37.pyc
+tflite-camera/utils/__pycache__/cacli_models.cpython-37.pyc
+tflite-camera/utils/__pycache__/visualization_utils.cpython-37.pyc
