@@ -126,8 +126,9 @@ def draw_bounding_box_on_image(image,
   draw = ImageDraw.Draw(image)
   im_width, im_height = image.size
   if use_normalized_coordinates:
-    (left, right, top, bottom) = (xmin * im_width, xmax * im_width,
-                                  ymin * im_height, ymax * im_height)
+    (left, right, top, bottom) = (xmin * im_width, xmax * im_width, ymin * im_height, ymax * im_height)
+    print("top-left x: " + str(int(top)) + ", y: " + str(int(left)))
+    print("bottom-right x: " + str(int(bottom)) + ", y: " + str(int(right)))
   else:
     (left, right, top, bottom) = (xmin, xmax, ymin, ymax)
   draw.line([(left, top), (left, bottom), (right, bottom),

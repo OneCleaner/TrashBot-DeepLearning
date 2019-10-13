@@ -6,7 +6,7 @@
 
 '''
 Set of utility functions to help with loading and testing a mobilenet-v1 model trained with
-https://github.com/cloud-annotations/training 
+https://github.com/cloud-annotations/training
 '''
 import tensorflow as tf
 import numpy as np
@@ -66,7 +66,7 @@ def call_tflite_model(interpreter, input_img):
     Designed to work with Mobilenet-V1 SSD 300 models trained on Cacli
 
     Returns inference classes, boxes, scores
-    
+
     Args:
     interpreter : (tf.lite.Interpreter) applied to MODEL_PATH
                   Should have run model.allocate_tensors() previously.
@@ -166,7 +166,7 @@ def detect_objects(model, IMAGE_PATH, CATEGORY_INDEX, ANCHOR_POINTS, MINIMUM_CON
     xMin = xCtr - w / float(2)
     yMax = yCtr + h / float(2)
     xMax = xCtr + w / float(2)
-    
+
     boxes_normalised = [yMin, xMin, yMax, xMax]
     print("-"*10)
     print("Inference Summary:")
@@ -177,6 +177,7 @@ def detect_objects(model, IMAGE_PATH, CATEGORY_INDEX, ANCHOR_POINTS, MINIMUM_CON
     print("Boxes shape: {}".format(np.transpose(np.squeeze(boxes_normalised)).shape))
     print("Classes shape: {}".format(np.round(np.squeeze(classes)).astype(np.int32).shape ))
     print("Scores shape: {}".format(np.squeeze(scores).shape))
+    print("-"*10)
     fig = plt.figure()
     out_image = vis_util.visualize_boxes_and_labels_on_image_array(
         np.squeeze(image_np),
@@ -186,9 +187,9 @@ def detect_objects(model, IMAGE_PATH, CATEGORY_INDEX, ANCHOR_POINTS, MINIMUM_CON
         CATEGORY_INDEX,
         min_score_thresh=MINIMUM_CONFIDENCE,
         use_normalized_coordinates=True,
-        line_thickness=8,
+        line_thickness=4,
         ret = True)
-    
+    print("-"*10)
     fig.set_size_inches(16, 9)
     ax = plt.Axes(fig, [0., 0., 1., 1.])
     ax.set_axis_off()
@@ -213,4 +214,3 @@ def mkdir_p(mypath):
       else: raise
 
 print("Util imports Successful")
-

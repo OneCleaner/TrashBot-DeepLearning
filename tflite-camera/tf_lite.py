@@ -77,22 +77,17 @@ if __name__ == "__main__":
     category_index = { i : {"name" : label_list[i]} for i in list(range(len(label_list))) }
     cam = cv.VideoCapture(0)
     while True:
-        try:
-            grabbed, frame = cam.read()
-            cv.imwrite('gieri.png', frame)
+        grabbed, frame = cam.read()
+        cv.imwrite('gieri.png', frame)
 
 
-            models.detect_objects(model_interpreter, "gieri.png", category_index, anchor_points, MINIMUM_CONFIDENCE, SAVE_DIR="out")
+        models.detect_objects(model_interpreter, "gieri.png", category_index, anchor_points, MINIMUM_CONFIDENCE, SAVE_DIR="out")
 
-            image = cv.imread("out/gieri.png")
-            image = image[0:558, 124:867] #crop per evitare bordi bianchi
+        image = cv.imread("out/gieri.png")
+        image = image[0:558, 124:867] #crop per evitare bordi bianchi
 
-            cv.imshow("image", image)
-            if (cv.waitKey(1) == 27) | (cv.waitKey(1) & 0xFF == ord('q')):
-              break
-
-            cv.destroyAllWindows()
-            sys.exit()
-        except KeyboardInterrupt:
-            cv.destroyAllWindows()
-            sys.exit()
+        cv.imshow("image", image)
+        if (cv.waitKey(1) == 27) | (cv.waitKey(1) & 0xFF == ord('q')):
+          break
+    cv.destroyAllWindows()
+    sys.exit()
