@@ -75,7 +75,7 @@ if __name__ == "__main__":
     label_list = models.json_to_numpy(MODEL_LABEL_PATH)
 
     category_index = { i : {"name" : label_list[i]} for i in list(range(len(label_list))) }
-    cam = cv.VideoCapture(0)
+    cam = cv.VideoCapture(1)
     while True:
         grabbed, frame = cam.read()
         cv.imwrite('gieri.png', frame)

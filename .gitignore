@@ -7,3 +7,8 @@ tflite-camera/utils/__pycache__/cacli_models.cpython-37.pyc
 tflite-camera/utils/__pycache__/visualization_utils.cpython-37.pyc
 *.pyc
 *.png
+*.pyc
+*.pyc
+tflite-camera/utils/__pycache__/__init__.cpython-37.pyc
+tflite-camera/utils/__pycache__/cacli_models.cpython-37.pyc
+tflite-camera/utils/__pycache__/visualization_utils.cpython-37.pyc
